@@ -1,1 +1,28 @@
  // estados_repository.forEach((element) => print(element));
+
+****************************************
+  estados.forEach((element)  {
+          final Estado estado = Estado(
+              element['uid'] ?? '',
+              element['uf'] ?? '',
+              element['cases'] ?? '',
+              element['deaths'] ?? '',
+              element['suspects'] ?? '',
+              element['refuses'] ?? '',
+              element['update'] ?? ''
+              );
+          list.add(estado);
+        });
+****************************************
+
+if (response.statusCode == 200) {
+      final json = jsonDecode(response.body);
+      var estados = await json['data'];
+
+      estados.forEach((element) {
+        final estado = Estado.fromJson(element);
+        list.add(estado);
+      });
+
+      return list;
+    }

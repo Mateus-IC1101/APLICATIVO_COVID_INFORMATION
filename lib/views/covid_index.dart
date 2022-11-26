@@ -18,8 +18,6 @@ class _CovidIndexState extends State<CovidIndex> {
   initState(){
     super.initState();
     apiCovid();
-    print('allll');
-    print(estados_all);
   }
 
   Future apiCovid() async {
@@ -46,7 +44,7 @@ class _CovidIndexState extends State<CovidIndex> {
     return Container(
       height: 50,
       color: Colors.green,
-      child: Center(child: Text('Estado: xxxxaaa')),
+      child: Center(child: Text('${estados_all[index].uf}')),
     );})
     );
   }
