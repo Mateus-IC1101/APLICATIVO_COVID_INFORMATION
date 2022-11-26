@@ -1,7 +1,6 @@
 import 'package:app_loja/http_service/http_covid_service.dart';
 import 'package:app_loja/model/estados.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:app_loja/views/covid_list_tile.dart';
 import 'package:flutter/material.dart';
 
 class CovidIndex extends StatefulWidget {
@@ -44,7 +43,11 @@ class _CovidIndexState extends State<CovidIndex> {
     return Container(
       height: 50,
       color: Colors.green,
-      child: Center(child: Text('${estados_all[index].uf}')),
+      child: Center(
+        child: CovidListTile(estado: estados_all[index],
+        ),
+      
+      ),
     );})
     );
   }
