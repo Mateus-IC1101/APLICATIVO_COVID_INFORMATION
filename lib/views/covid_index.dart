@@ -11,10 +11,9 @@ class CovidIndex extends StatefulWidget {
 }
 
 class _CovidIndexState extends State<CovidIndex> {
-
   List<Estado> estados_all = [];
   @override
-  initState(){
+  initState() {
     super.initState();
     apiCovid();
   }
@@ -22,33 +21,35 @@ class _CovidIndexState extends State<CovidIndex> {
   Future apiCovid() async {
     try {
       estados_all = await HttpCovidService().getData();
-      setState((){
-      
-      });
+      setState(() {});
     } catch (e) {
       return e;
-      
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Todos os usuários")
+      appBar: AppBar(title: Text("Covid Informações")),
+      body: ListView.separated(
+        padding: const EdgeInsets.all(8),
+        itemCount: estados_all.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Container(
+            color: Color.fromARGB(255, 255, 255, 254),
+            child: Center(
+              child: CovidListTile(
+                estado: estados_all[index],
+              ),
+            ),
+          );
+        },
+        separatorBuilder: (context, index) {
+          return Divider(
+            thickness: 2,
+          );
+        },
       ),
-      body: ListView.builder(padding: const EdgeInsets.all(8),
-  itemCount: estados_all.length,
-  itemBuilder: (BuildContext context, int index) {
-    return Container(
-      height: 50,
-      color: Colors.green,
-      child: Center(
-        child: CovidListTile(estado: estados_all[index],
-        ),
-      
-      ),
-    );})
     );
   }
 }
