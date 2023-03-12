@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 class CovidListTile extends StatefulWidget {
   final estado;
+  final data = DateTime(2022, 05, 01);
 
   CovidListTile({super.key, required this.estado});
 
@@ -12,6 +13,18 @@ class CovidListTile extends StatefulWidget {
 
 class _CovidListTileState extends State<CovidListTile> {
   @override
+  formatarData(String data) {
+    final data_formatada = data.substring(0, 10).split('-');
+    return data_formatada[2] +
+        '/' +
+        data_formatada[1] +
+        '/' +
+        data_formatada[0] +
+        ' ' +
+        ' ' +
+        data.substring(11, 19);
+  }
+
   Widget build(BuildContext context) {
     return ListTile(
         leading: CircleAvatar(
@@ -32,7 +45,8 @@ class _CovidListTileState extends State<CovidListTile> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Atualização: ' + widget.estado.datetime.toString()),
+                    Text('Atualização: ' +
+                        formatarData(widget.estado.datetime.toString())),
                   ],
                 ),
               ),
