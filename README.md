@@ -3,10 +3,11 @@ Aplicativo que consulta informações de uma API sobre os dados de infectados, s
 
 O aplicativo está em desenvolvimento. Estado atual:
 
-![alt text](https://drive.google.com/file/d/1j5e64c4s7bTvXICYZrXJBA5CB-h4Qe2w/view?usp=sharing)
+![tela_atual](https://user-images.githubusercontent.com/98135661/224719118-ab1ff3be-2b7b-45f8-a61c-c189849f7ca8.png)
 
 
-Implementações futuras:
+Implementações futuras:![Uploading Captura de tela de 2023-03-13 10-35-59.png…]()
+
 
 detalhes de outras doenças em nível de  pandemia, epdemia e etc...
 descrição da doença, origem e etc...
