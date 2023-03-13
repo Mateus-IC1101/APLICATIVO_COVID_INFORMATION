@@ -1,9 +1,9 @@
 import 'package:app_loja/model/estados.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class CovidListTile extends StatefulWidget {
   final estado;
-  final data = DateTime(2022, 05, 01);
 
   CovidListTile({super.key, required this.estado});
 
@@ -23,6 +23,24 @@ class _CovidListTileState extends State<CovidListTile> {
         ' ' +
         ' ' +
         data.substring(11, 19);
+  }
+
+  formatarNumeros(String n) {
+    var formatacao = NumberFormat('###,###,###,###,###,###');
+    var numero_formatado = formatacao.format(double.parse(n));
+    var numero_array = numero_formatado.split(',');
+    var tamanho = numero_array.length;
+    String numero_final = '';
+    int index_bug = 0;
+    numero_array.forEach((element) {
+      if (index_bug > 0) {
+        numero_final = numero_final + '.' + element.toString();
+        return;
+      }
+      numero_final = element.toString();
+      index_bug += 1;
+    });
+    return numero_final;
   }
 
   Widget build(BuildContext context) {
@@ -55,8 +73,10 @@ class _CovidListTileState extends State<CovidListTile> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('casos: ' + widget.estado.cases.toString()),
-                      Text('suspeitos: ' + widget.estado.suspects.toString()),
+                      Text('casos: ' +
+                          formatarNumeros(widget.estado.cases.toString())),
+                      Text('suspeitos: ' +
+                          formatarNumeros(widget.estado.suspects.toString())),
                     ],
                   ),
                   Padding(
@@ -64,8 +84,10 @@ class _CovidListTileState extends State<CovidListTile> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('mortes:' + widget.estado.deaths.toString()),
-                        Text('recusados: ' + widget.estado.refuses.toString()),
+                        Text('mortes:' +
+                            formatarNumeros(widget.estado.deaths.toString())),
+                        Text('recusados: ' +
+                            formatarNumeros(widget.estado.refuses.toString())),
                       ],
                     ),
                   )
