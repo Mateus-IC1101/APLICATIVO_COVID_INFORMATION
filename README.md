@@ -1,16 +1,15 @@
-# app_loja
 
-A new Flutter project.
+Aplicativo que consulta informações de uma API sobre os dados de infectados, suspeitos e outros detalhes de cada estado do Brasil.
 
-## Getting Started
+O aplicativo está em desenvolvimento. Estado atual:
 
-This project is a starting point for a Flutter application.
+![alt text](https://drive.google.com/file/d/1j5e64c4s7bTvXICYZrXJBA5CB-h4Qe2w/view?usp=sharing)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Implementações futuras:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+detalhes de outras doenças em nível de  pandemia, epdemia e etc...
+descrição da doença, origem e etc...
+detalhes breve de cada estado;
+gráficos individual dos dados de cada estado;
+gráficos dos dados entre os estados.
