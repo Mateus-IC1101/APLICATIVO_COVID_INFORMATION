@@ -4,10 +4,15 @@ import 'package:app_loja/views/covid_index.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+// void main() async {
+//   runApp(ChangeNotifierProvider(
+//       create: (context) => HttpCovidService().getData(),
+//       child: MaterialApp(home: MyApp())));
+// }
 void main() async {
-  runApp(ChangeNotifierProvider(
-      create: (context) => HttpCovidService().getData(),
-      child: MaterialApp(home: MyApp())));
+  runApp(MaterialApp(
+    home: MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
