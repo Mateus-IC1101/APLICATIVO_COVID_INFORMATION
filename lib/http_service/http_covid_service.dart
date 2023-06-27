@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 import 'package:app_loja/model/estados.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 void main() async {
@@ -8,7 +9,7 @@ void main() async {
   print(result);
 }
 
-class HttpCovidService {
+class HttpCovidService extends ChangeNotifier {
   final String url = 'https://covid19-brazil-api.now.sh/api/report/v1';
 
   Future getData() async {

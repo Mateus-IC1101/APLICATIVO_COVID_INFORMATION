@@ -1,14 +1,13 @@
-import 'package:app_loja/data/estado_repository.dart';
 import 'package:app_loja/http_service/http_covid_service.dart';
-import 'package:app_loja/model/estados.dart';
 import 'package:app_loja/views/NewPageScreen.dart';
 import 'package:app_loja/views/covid_index.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
-  runApp(MaterialApp(
-    home: MyApp(),
-  ));
+  runApp(ChangeNotifierProvider(
+      create: (context) => HttpCovidService().getData(),
+      child: MaterialApp(home: MyApp())));
 }
 
 class MyApp extends StatefulWidget {

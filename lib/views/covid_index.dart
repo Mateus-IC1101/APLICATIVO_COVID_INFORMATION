@@ -30,26 +30,31 @@ class _CovidIndexState extends State<CovidIndex> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Covid Informações")),
-      body: ListView.separated(
-        padding: const EdgeInsets.all(8),
-        itemCount: estados_all.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-            color: Color.fromARGB(255, 255, 255, 254),
-            child: Center(
-              child: CovidListTile(
-                estado: estados_all[index],
-              ),
-            ),
-          );
-        },
-        separatorBuilder: (context, index) {
-          return Divider(
-            thickness: 2,
-          );
-        },
-      ),
-    );
+        appBar: AppBar(title: Text("Covid Informações")),
+        body: estados_all.isEmpty
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : RefreshIndicator(
+                child: ListView.separated(
+                  padding: const EdgeInsets.all(8),
+                  itemCount: estados_all.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                      color: Color.fromARGB(255, 255, 255, 254),
+                      child: Center(
+                        child: CovidListTile(
+                          estado: estados_all[index],
+                        ),
+                      ),
+                    );
+                  },
+                  separatorBuilder: (context, index) {
+                    return Divider(
+                      thickness: 2,
+                    );
+                  },
+                ),
+                onRefresh: apiCovid));
   }
 }
